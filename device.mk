@@ -39,7 +39,8 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.haptics.rc
+    init.haptics.rc \
+    init.esim.rc
 
 # OPlus Camera
 $(call inherit-product-if-exists, vendor/oplus/camera/waffle/opluscamera.mk)

@@ -14,3 +14,10 @@ install_symlink {
     installed_location: "firmware/wlan/WCNSS_qcom_cfg.ini",
     symlink_target: "/odm/vendor/etc/wifi/WCNSS_qcom_cfg.ini",
 }
+
+prebuilt_etc {
+    name: "init.esim.rc",
+    src: "init/init.esim.rc",
+    sub_dir: "init",
+    device_specific: true,
+}

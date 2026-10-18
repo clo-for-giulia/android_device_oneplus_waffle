@@ -1,0 +1,9 @@
+service oplus_esim_hotswap /system/bin/service call vendor.oplus.hardware.esim.IOplusEsim/default 4
+    class late_start
+    user root
+    group root system radio
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1 && property:persist.vendor.oplus.radio.esim.gpio.status=1
+    start oplus_esim_hotswap

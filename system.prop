@@ -1,2 +1,4 @@
-# Maintainer
-ro.lunaris.maintainer=0mar
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=Snapdragon 8 Gen 3 (SM8650)
+ro.boot.hardware.revision=OnePlus 12
+ro.product.marketname=OnePlus 12

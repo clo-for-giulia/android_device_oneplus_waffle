@@ -1,3 +1,5 @@
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+
 #
 # Copyright (C) 2021-2025 The LineageOS Project
 #

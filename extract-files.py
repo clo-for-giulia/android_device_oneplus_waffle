@@ -89,7 +89,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_describe')
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
-        .clear_symbol_version('AHardwareBuffer_unlock'),
+        .clear_symbol_version('AHardwareBuffer_unlock')
+        .replace_needed('libui.so', 'libui-stock.so'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
         .regex_replace('NFC_DEBUG_ENABLED=1', 'NFC_DEBUG_ENABLED=0'),
     'vendor/etc/init/vendor.qti.camera.provider-service_64.rc': blob_fixup()
@@ -98,6 +99,17 @@ blob_fixups: blob_fixups_user_type = {
         r'\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
     'vendor/lib64/libcwb_qcom_aidl.so': blob_fixup()
         .add_needed('libui_shim.so'),
+    (
+        'odm/lib64/camera/components/com.oplus.node.mvgsat.so',
+        'odm/lib64/camera/components/com.oplus.node.sstabphoto.so',
+        'odm/lib64/hw/camera.oemlayer.so',
+        'odm/lib64/libmvgcommon.so',
+        'odm/lib64/libsharebuffer_impl.so',
+        'vendor/lib64/camera/components/com.qti.node.dewarp.so',
+    ): blob_fixup()
+        .replace_needed('libui.so', 'libui-stock.so'),
+    'vendor/lib64/libui-stock.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

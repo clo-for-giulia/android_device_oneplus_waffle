@@ -3,7 +3,15 @@ persist.vendor.display.pxlw.iris_feature=0x417f0780
 
 # Regional properties
 import /odm/etc/${ro.boot.prjname}/build.default.prop
+import /odm/etc/${ro.boot.prjname}/build.EU.prop
 ro.product.property_source_order=odm,vendor,product,system_ext,system
+
+# eSIM
+ro.vendor.oplus.esim.support=2
+ro.vendor.oplus.radio.esim.feature=2
+ro.vendor.oplus.radio.esim.default.on=1
+persist.vendor.oplus.radio.esim.gpio.status=1
+persist.vendor.esim.gpio.status=1
 
 # Sensors
 ro.vendor.oplus.sensor.high_pwm_rgb=true

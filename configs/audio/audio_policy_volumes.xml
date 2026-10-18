@@ -169,7 +169,7 @@ volume index from 0 to 100.
         <point>1,-4000</point>
         <point>33,-2910</point>
         <point>66,-1620</point>
-        <point>100,-500</point>
+        <point>100,0</point>
     </volume>
     <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_EARPIECE"
                                         ref="DEFAULT_NON_MUTABLE_EARPIECE_VOLUME_CURVE"/>

@@ -19,10 +19,8 @@ from extract_utils.main import (
 
 namespace_imports = [
     'hardware/oplus',
-    'hardware/qcom-caf/sm8650',
     'vendor/oneplus/sm8650-common',
     'vendor/qcom/common/vendor/adreno/u',
-    'vendor/qcom/opensource/commonsys-intf/display',
 ]
 
 
@@ -39,17 +37,8 @@ lib_fixups: lib_fixups_user_type = {
         'libdualcam_optical_zoom_control',
         'libdualcam_video_optical_zoom',
         'libhwconfigurationutil',
-        'libpwirisfeature',
-        'libpwirishalwrapper',
         'libtriplecam_optical_zoom_control',
         'libtriplecam_video_optical_zoom',
-        'vendor.pixelworks.hardware.display-V2-ndk',
-        'vendor.pixelworks.hardware.display@1.0',
-        'vendor.pixelworks.hardware.display@1.1',
-        'vendor.pixelworks.hardware.display@1.2',
-        'vendor.pixelworks.hardware.feature-V1-ndk',
-        'vendor.pixelworks.hardware.feature@1.0',
-        'vendor.pixelworks.hardware.feature@1.1',
     ): lib_fixup_vendor_suffix,
 }
 
@@ -85,7 +74,6 @@ blob_fixups: blob_fixups_user_type = {
     (
         'odm/lib64/libdisplaycolorfeature.so',
         'odm/lib64/libdisplayfossfeature_nature.so',
-        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
         'vendor/lib64/libdpps.so',
         'vendor/lib64/libsnapdragoncolor-manager.so',
     ): blob_fixup()

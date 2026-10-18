@@ -2253,3 +2253,6 @@ odm/etc/wifi/kiwi/bdwlan.b0e
 odm/etc/wifi/kiwi/bdwlan.elf
 odm/etc/wifi/kiwi/regdb.bin
 odm/vendor/etc/wifi/WCNSS_qcom_cfg.ini
+odm/etc/camera/license_release_fdc.lic
+odm/etc/camera/singleblur/license_release.license
+odm/etc/camera/model/license.lic

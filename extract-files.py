@@ -1,4 +1,4 @@
-#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
+#!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils:../../../hardware/oplus/extract-utils-ext python3
 #
 # SPDX-FileCopyrightText: 2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
@@ -15,6 +15,9 @@ from extract_utils.fixups_lib import (
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
+)
+from extract_utils_oplus import (
+    add_generated_thermal_engine_config,
 )
 
 namespace_imports = [
@@ -69,13 +72,6 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
     (
-        'odm/lib64/libdisplaycolorfeature.so',
-        'odm/lib64/libdisplayfossfeature_nature.so',
-        'vendor/lib64/libdpps.so',
-        'vendor/lib64/libsnapdragoncolor-manager.so',
-    ): blob_fixup()
-        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    (
         'odm/lib64/libEIS.so',
         'odm/lib64/libEISLive.so',
         'odm/lib64/libHIS.so',
@@ -94,6 +90,9 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(
         r'(service vendor\.camera-provider .*?\n)',
         r'\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
+    'vendor/lib64/libcamera2ndk_vendor.so': blob_fixup()
+        .replace_needed('android.frameworks.cameraservice.device-V1-ndk.so', 'android.frameworks.cameraservice.device-V3-ndk.so')
+        .replace_needed('android.frameworks.cameraservice.service-V1-ndk.so', 'android.frameworks.cameraservice.service-V3-ndk.so'),
     'vendor/lib64/libcwb_qcom_aidl.so': blob_fixup()
         .add_needed('libui_shim.so'),
     (
@@ -116,6 +115,11 @@ module = ExtractUtilsModule(
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
     add_firmware_proprietary_file=True,
+)
+
+add_generated_thermal_engine_config(
+    module,
+    horae_target_config='system_ext/etc/horae/horae_SM8650.conf',
 )
 
 if __name__ == '__main__':

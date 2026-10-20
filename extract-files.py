@@ -106,6 +106,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libui.so', 'libui-stock.so'),
     'vendor/lib64/libui-stock.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    'vendor/lib64/com.qualcomm.mcx.nonlinearmapper.so': blob_fixup()
+        .sig_replace('5f 24 03 d5 48 65 8a d2', '5f2403d5c0035fd6'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
